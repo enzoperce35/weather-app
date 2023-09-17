@@ -17,7 +17,9 @@
     "url": "https://github.com/enzoperce35/weather-app/issues"
   },
   "homepage": "https://github.com/enzoperce35/weather-app#readme",
-  "dependencies": {
-    "jslint": "^0.12.1"
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.1"
   }
 }
