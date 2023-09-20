@@ -1,5 +1,18 @@
+// import { getWeather } from './async_function/promise_then';
+// import { getWeather } from './async_function/fetch_then';
+import { getWeather } from './async_function/async_await';
 import './index.css';
 
-const container = document.getElementById('container')
+getWeather('lipa')
 
-container.innerHTML = 'Webpack basic set-up working'
+/* chain the following codes when using the 'promise_then' getWeather import
+
+.then((data) => {
+    console.log(data);
+  },
+
+  (error) => {
+    console.log(error);
+});
+
+*/
