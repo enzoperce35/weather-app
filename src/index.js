@@ -1,3 +1,4 @@
+import PubSub from 'pubsub-js';
 // import { getWeather } from './async_function/promise_then';
 // import { getWeather } from './async_function/fetch_then';
 import { getWeather } from './async_function/async_await';
