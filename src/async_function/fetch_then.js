@@ -1,4 +1,4 @@
-function getWeather(city) {
+function displayWeather(city) {
   fetch(`http://api.weatherapi.com/v1/forecast.json?key=97b6481959404ea1a4a214919231509&q=${city}&days=3&aqi=no&alerts=no`)
 
     .then((response) => {
@@ -8,7 +8,7 @@ function getWeather(city) {
     })
 
     .then((data) => {
-      console.log(data);
+      PubSub.publish('data_ready', data);
     })
 
     .catch((error) => {
@@ -16,4 +16,4 @@ function getWeather(city) {
     });
 }
 
-export { getWeather };
+export { displayWeather };
