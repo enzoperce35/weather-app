@@ -1,17 +1,30 @@
 import PubSub from "pubsub-js";
-import { newContainer } from "./dom_helper";
+import { newEl, currForecast } from "./dom_helper";
 
 const header = (() =>{
-  const cont = newContainer('header')
-  const city = newContainer('head-main')
+  const head = newEl('header'),
+        city = newEl('city'),
+    cityName = newEl('city-name'),
+forecastCont = newEl('curr-forecast', '');
 
   PubSub.subscribe('data_ready', (_, data) => {
-    city.innerHTML = data.location.name
+    cityData(data.current)
+
+    cityName.innerHTML = data.location.name
   })
 
-  cont.append(city)
+  function cityData(currData) {
+    let temp = currForecast('temp', `${currData.feelslike_c} &#8451 | ${currData.feelslike_f} &#8457`),
+        wind = currForecast('wind', `${currData.wind_kph} kph`),
+    humidity = currForecast('humidity', currData.humidity);
 
-  return cont
+    forecastCont.append(temp, wind, humidity);
+  }
+
+  city.append(cityName, forecastCont)
+  head.append(city)
+
+  return head
 })();
 
 export { header }

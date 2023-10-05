@@ -1,15 +1,14 @@
-import { newContainer } from "../../dom_helper";
+import { newEl, forecastBox } from "../../dom_helper";
 
 const forecastHours = (hours, i) => {
-  let cont = newContainer('', 'hours')
+  let cont = newEl('', 'hours')
 
   for(let hr_i=0; hr_i<hours.length; hr_i++) {
-    const icon = document.createElement('img')
-    icon.id = `day${i}-icon${hr_i}`
-    icon.className = 'icon'
-    icon.src = hours[hr_i].condition.icon
+    const hour = forecastBox('hour', hours[hr_i].condition.icon);
 
-    cont.append(icon)
+    hour.innerHTML = hours[hr_i].temp_c
+
+    cont.appendChild(hour)
   }
 
   return cont
