@@ -1,29 +1,29 @@
-import { newEl } from "../dom_helper";
+import { newEl } from '../dom_helper';
 
 const columnTitles = (() => {
-  const cont = newEl('title-col')
-  const hour = newEl('title-row')
+  const cont = newEl('title-col');
+  const hour = newEl('title-row');
 
   function colTitle(i) {
     if (i >= 12) {
-      return (i - 12) + 'pm'
+      return `${i - 12}pm`;
     }
 
-    return i + 'am'
+    return `${i}am`;
   }
 
-  for(let i=0; i<24; i++) {
+  for (let i = 0; i < 24; i++) {
     const hourHead = newEl('', 'hour-titles', 'span');
 
-    hourHead.classList.add(`title-${i}`)
-    hourHead.innerHTML = colTitle(i)
+    hourHead.classList.add(`title-${i}`);
+    hourHead.innerHTML = colTitle(i);
 
-    hour.append(hourHead)
+    hour.append(hourHead);
   }
 
-  cont.append(hour)
+  cont.append(hour);
 
-  return cont
+  return cont;
 })();
 
-export { columnTitles }
+export { columnTitles };

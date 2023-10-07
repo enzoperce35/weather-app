@@ -1,39 +1,44 @@
-function newEl(el_id = '', el_class = '', el = 'div') {
+function newEl(elId = '', elClass = '', el = 'div') {
   const element = document.createElement(el);
 
-  if (el_id != '') {element.id = el_id}
+  if (elId !== '') { element.id = elId; }
 
-  if (el_class != '') {element.classList.add(el_class)}
+  if (elClass !== '') { element.classList.add(elClass); }
 
-  return element
+  return element;
 }
 
 function currForecast(icon, data) {
-  const cont = newEl('', 'cityforecasts'),
-    dataCont = newEl('', 'cityfore-data', 'span'),
-     urlCont = newEl('', 'cityfore-icon', 'img');
+  const cont = newEl('', 'cityforecasts');
+  const dataCont = newEl('', 'cityfore-data', 'span');
+  const urlCont = newEl('', 'cityfore-icon', 'img');
 
-  urlCont.src  = `/src/icons/${icon}.svg`
-  dataCont.innerHTML = data
+  urlCont.src = `/src/icons/${icon}.svg`;
+  dataCont.innerHTML = data;
 
-  cont.append(urlCont, dataCont)
+  cont.append(urlCont, dataCont);
 
-  return cont
+  return cont;
 }
 
-function forecastBox(unit, path, el = 'span'){
-  let box = newEl('', 'icon-boxes', el);
+function forecastBox(unit, path, el = 'span') {
+  const box = newEl('', 'icon-boxes', el);
 
-  box.style.backgroundImage = "url('" + `${path}` + "')"
-  box.classList.add(`${unit}-box`)
+  box.style.backgroundImage = "url('" + `${path}` + "')";
+  box.classList.add(`${unit}-box`);
 
-  return box
+  return box;
 }
 
 const displayLine = (() => {
-  const line = newEl('', 'displayline', 'hr')
+  const line = newEl('', 'displayline', 'hr');
 
-  return line
+  return line;
 })();
 
-export { newEl, forecastBox, displayLine, currForecast }
+export {
+  newEl,
+  forecastBox,
+  displayLine,
+  currForecast,
+};
