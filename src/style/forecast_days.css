@@ -1,0 +1,31 @@
+#forecast-days {
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.hours, #title-row {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+}
+
+.day-box {
+  background: rgba(125, 95, 236, 0.4);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+}
+
+.forecast-date {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.forecast-text {
+  font-weight: bolder;
+  justify-self: center;
+  align-self: center;
+}
+

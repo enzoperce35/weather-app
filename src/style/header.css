@@ -1,0 +1,31 @@
+#city {
+  width: fit-content;
+  padding-bottom: 2vh;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 2vw;
+  justify-content: center;
+  align-content: center;
+}
+
+#city-name {
+  font-size: 6em;
+}
+
+#curr-forecast {
+  list-style-type: none;
+  display: grid;
+  grid-template-rows: repeat(3, 3vh);
+}
+
+.cityfore-icon {
+  height: 1.5em;
+  padding-right: .2vw;
+}
+
+.cityfore-data {
+  font-weight: bold;
+  font-size: .8em;
+  position: relative;
+  top: -.30em;
+}

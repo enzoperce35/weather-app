@@ -1,0 +1,13 @@
+#main {
+  display: grid;
+  height: 60vh;
+  grid-template-rows: auto 5fr 1vh;
+  padding: 5px;
+}
+
+.displayline {
+  margin-top: -1;
+  border: none;
+  height: 1vh;
+  background-color: rgb(93, 142, 156);
+}

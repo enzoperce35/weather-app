@@ -1,3 +1,85 @@
-#container {
-  color: red;
+@import "./style/container.css";
+@import "./style/main.css";
+@import "./style/header.css";
+@import "./style/content.css";
+@import "./style/forecast_days.css";
+@import "./style/forecast_hours.css";
+
+body {
+  background-color: rgb(218, 216, 208);
+}
+
+/* limit hour columns to 12 */
+@media screen and (max-width: 1500px) {
+  .hour-box:not(:nth-child(2n)),
+  .hour-titles:not(:nth-child(2n)) {
+    display: none;
+  }
+
+  .hours,
+  #title-row {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  #title-col,
+  #main-content {
+    grid-template-columns: 14vw 80vw;
+  }
+}
+
+/* limit hour columns to 8 */
+@media screen and (max-width: 1000px) {
+  .hour-box:nth-child(3n),
+  .hour-titles:nth-child(3n) {
+    display: none;
+  }
+
+  .hours,
+  #title-row {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  #title-col,
+  #main-content {
+    grid-template-columns: 19vw 75vw;
+  }
+}
+
+/* limit hour columns to 4 */
+@media screen and (max-width: 650px) {
+  #city {
+    column-gap: 4vw
+  }
+
+  #city-name {
+    font-size: 4em;
+  }
+
+  .cityfore-icon {
+    height: 1em;
+    padding-right: .2vw;
+  }
+
+  .cityfore-data {
+    font-size: .6em;
+  }
+
+  .forecast-date {
+    font-size: .7em;
+  }
+
+  .hour-box:nth-child(4n),
+  .hour-titles:nth-child(4n) {
+    display: none;
+  }
+
+  .hours,
+  #title-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #title-col,
+  #main-content {
+    grid-template-columns: 26vw 65vw;
+  }
 }
