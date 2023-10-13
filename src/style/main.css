@@ -1,8 +1,7 @@
 #main {
-  display: grid;
   height: 60vh;
+  display: grid;
   grid-template-rows: auto 5fr 1vh;
-  padding: 5px;
 }
 
 .displayline {

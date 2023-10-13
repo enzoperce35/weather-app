@@ -27,8 +27,6 @@
 #title-col,
 #main-content {
   display: grid;
-  grid-template-columns: 10vw 84vw;
+  grid-template-columns: 9.5vw 84vw;
   column-gap: .5vw;
 }
-
-

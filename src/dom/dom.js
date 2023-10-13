@@ -1,12 +1,11 @@
 import { newEl } from './dom_helper';
 import { main } from './main';
+import { form } from './form/form';
 
-const dom = (() => {
+export const dom = (() => {
   const cont = newEl('container');
 
-  cont.append(main);
+  cont.append(main, form);
 
   document.body.append(cont);
 })();
-
-export { dom };

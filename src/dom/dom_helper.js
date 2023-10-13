@@ -30,6 +30,12 @@ function forecastBox(unit, path, el = 'span') {
   return box;
 }
 
+function clear(cont) {
+  while(cont.firstChild){
+    cont.removeChild(cont.firstChild);
+  }
+}
+
 const displayLine = (() => {
   const line = newEl('', 'displayline', 'hr');
 
@@ -41,4 +47,5 @@ export {
   forecastBox,
   displayLine,
   currForecast,
+  clear,
 };

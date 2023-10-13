@@ -1,10 +1,15 @@
+#header {
+  display: grid;
+  grid-template-columns: 80vw 14vw;
+  padding-bottom: 2vh;
+}
+
 #city {
-  width: fit-content;
   padding-bottom: 2vh;
   display: grid;
   grid-template-columns: repeat(2, auto);
   column-gap: 2vw;
-  justify-content: center;
+  justify-content: left;
   align-content: center;
 }
 
@@ -28,4 +33,11 @@
   font-size: .8em;
   position: relative;
   top: -.30em;
+}
+
+#new-city {
+  justify-self: right;
+  display: flex;
+  flex-direction: column-reverse;
+  cursor: pointer;
 }

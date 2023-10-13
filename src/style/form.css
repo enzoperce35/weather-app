@@ -1,0 +1,56 @@
+form {
+  height: 50vh;
+  width: 25vw;
+  padding: 3vw;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
+  display: grid;
+  grid-template-rows: 5px 1fr repeat((3, 2fr)) 1fr;
+  row-gap: 4vh;
+
+  background-color: rgb(196, 176, 252);
+  border: 10px double darkgreen;
+  border-radius: 8px;
+}
+
+#form-header,
+.field-el,
+#submit {
+  display: flex;
+  justify-content: center;
+  margin: unset;
+}
+
+#form-exit {
+  margin: unset;
+  text-align: right;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 1vh;
+}
+
+input:not([type = 'submit']) {
+  height: 3vh;
+  width: 15vw;
+  border-radius: 7px;
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+input:is([type = 'submit']){
+  width: 5vw;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+}

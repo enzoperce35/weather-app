@@ -1,23 +1,25 @@
-import { newEl } from '../../dom_helper';
+import { newEl, clear} from '../../dom_helper';
 import { forecastDay } from './forecast_days';
 import { forecastHours } from './forecast_hours';
 
 const mainContent = (() => {
-  const cont = newEl('main-content');
-  const days = newEl('forecast-days');
-  const hours = newEl('forecast-hours');
+  const container = newEl('main-content');
 
   PubSub.subscribe('data_ready', (_, data) => {
-    data.forecast.forecastday.forEach((day, i) => {
-      days.appendChild(forecastDay(day, i));
+    clear(container)
 
-      hours.appendChild(forecastHours(day.hour, i));
+    const daysCont = newEl('forecast-days');
+    const hourCont = newEl('forecast-hours');
+
+    data.forecast.forecastday.forEach((day, i) => {
+      daysCont.appendChild(forecastDay(day, i))
+      hourCont.appendChild(forecastHours(day.hour, i))
     });
+
+    container.append(daysCont, hourCont);
   });
 
-  cont.append(days, hours);
-
-  return cont;
+  return container;
 })();
 
 export { mainContent };

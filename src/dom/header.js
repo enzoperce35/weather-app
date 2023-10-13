@@ -1,29 +1,48 @@
-import { newEl, currForecast } from './dom_helper';
+import { newEl, currForecast, clear } from './dom_helper';
 
-const header = (() => {
-  const head = newEl('header');
+export const header = (() => {
+  const container = newEl('header');
   const city = newEl('city');
-  const cityName = newEl('city-name');
-  const forecastCont = newEl('curr-forecast', '');
+
+  const newCityLink = (() => {
+    const newCity = newEl('change-city', 'form-toggle');
+    newCity.innerHTML = 'Change City';
+
+    const cont = newEl('new-city');
+    cont.appendChild(newCity);
+
+    return cont;
+  })();
 
   function cityData(currData) {
-    const temp = currForecast('temp', `${currData.feelslike_c} &#8451 | ${currData.feelslike_f} &#8457`);
-    const wind = currForecast('wind', `${currData.wind_kph} kph`);
-    const humidity = currForecast('humidity', currData.humidity);
+    const cont = newEl('curr-forecast', '');
 
-    forecastCont.append(temp, wind, humidity);
+    cont.append(
+      currForecast('temp', `${currData.feelslike_c} &#8451 | ${currData.feelslike_f} &#8457`),
+      currForecast('wind', `${currData.wind_kph} kph`),
+      currForecast('humidity', currData.humidity),
+    );
+
+    return cont;
+  }
+
+  function cityName(name) {
+    const cont = newEl('city-name');
+    cont.innerHTML = name;
+
+    return cont;
   }
 
   PubSub.subscribe('data_ready', (_, data) => {
-    cityData(data.current);
+    clear(city);
 
-    cityName.innerHTML = data.location.name;
+    city.append(
+      cityName(data.location.name),
+      cityData(data.current),
+    );
   });
 
-  city.append(cityName, forecastCont);
-  head.append(city);
+  container.append(city, newCityLink);
 
-  return head;
+  return container;
 })();
-
-export { header };
