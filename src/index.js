@@ -1,15 +1,12 @@
 import PubSub from 'pubsub-js';
 import { dom } from './dom/dom';
+import { formEvent } from './events/form_event';
+import { storage } from './storage';
 import './index.css';
-import { displayWeather } from './async_function/async_await';
-// import { displayWeather } from './async_function/fetch_then';
-// import { getWeather } from './async_function/promise_then';
+import { displayWeather } from './async_function/promise_then';
 
-displayWeather('lipa');
-
-/* chain the following codes when using the 'promise_then' getWeather import
-
-getWeather('lipa')
+// A classic promise_then async func; newer async functions are called on form submissions.
+displayWeather(storage.defaultCity)
   .then((data) => {
     PubSub.publish('data_ready', data);
   },
@@ -17,5 +14,3 @@ getWeather('lipa')
   (error) => {
     console.log(error);
 });
-
-*/
