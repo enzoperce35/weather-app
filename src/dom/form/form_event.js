@@ -1,5 +1,5 @@
+// import { displayWeather } from '../../async_function/fetch_then';
 import { displayWeather } from '../../async_function/async_await';
-//import { displayWeather } from '../async_function/fetch_then';
 
 export const formEvent = (() => {
   const form = document.getElementById('form');

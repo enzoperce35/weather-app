@@ -13,5 +13,5 @@ displayWeather(storage.defaultCity)
   },
 
   (error) => {
-    console.log(error);
+    alert(error);
 });
