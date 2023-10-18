@@ -27,14 +27,6 @@ function forecastBox(unit, path, el = 'span') {
   return box;
 }
 
-function blurredPage(blur = false) {
-  const page = document.querySelectorAll("#container > *:not(#form)");
-
-  page.forEach((p) => {
-    p.style =  blur ? "filter: blur(10px)" : "filter: unset"
-  })
-}
-
 function clear(cont) {
   while(cont.firstChild){
     cont.removeChild(cont.firstChild);
@@ -51,7 +43,6 @@ export {
   newEl,
   forecastBox,
   displayLine,
-  blurredPage,
   currForecast,
   clear,
 };

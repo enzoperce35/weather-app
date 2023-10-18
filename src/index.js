@@ -1,9 +1,10 @@
 import PubSub from 'pubsub-js';
 import { dom } from './dom/dom';
-import { formEvent } from './events/form_event';
 import { storage } from './storage';
-import './index.css';
+import { formView } from './dom/form/form_view';
+import { formEvent } from './dom/form/form_event';
 import { displayWeather } from './async_function/promise_then';
+import './index.css';
 
 // A classic promise_then async func; newer async functions are called on form submissions.
 displayWeather(storage.defaultCity)
