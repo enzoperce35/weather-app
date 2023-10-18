@@ -17,8 +17,8 @@ body {
     display: none;
   }
 
-  .hours,
-  #title-row {
+  #title-row,
+  .forecast-row {
     grid-template-columns: repeat(12, 1fr);
   }
 
@@ -39,13 +39,20 @@ body {
 
 /* limit hour columns to 8 */
 @media screen and (max-width: 1000px) {
+  #city-loc {
+    max-width: 70vw;
+    column-gap: 4vw;
+    overflow-x: hidden;
+    text-wrap: nowrap;
+  }
+
   .hour-box:nth-child(3n),
   .hour-titles:nth-child(3n) {
     display: none;
   }
 
-  .hours,
-  #title-row {
+  #title-row,
+  .forecast-row {
     grid-template-columns: repeat(8, 1fr);
   }
 
@@ -74,21 +81,30 @@ body {
 
 /* limit hour columns to 4 */
 @media screen and (max-width: 650px) {
-  #city {
-    column-gap: 4vw
+  #city * {
+    font-size: .7rem;
   }
 
-  #city-name {
-    font-size: 4em;
+  #city-loc {
+    max-width: 60vw;
+    padding-bottom: 1vh;
   }
 
-  .cityfore-icon {
-    height: 1em;
-    padding-right: .2vw;
+  #curr-forecast {
+    display: none;
   }
 
-  .cityfore-data {
-    font-size: .6em;
+  #header > * {
+    padding-bottom: unset;
+  }
+
+  #link-cont {
+    padding: unset;
+  }
+
+  #form-link {
+    height: 2.5em;
+    padding-bottom: 3vh;
   }
 
   .forecast-date {
@@ -100,8 +116,8 @@ body {
     display: none;
   }
 
-  .hours,
-  #title-row {
+  #title-row,
+  .forecast-row {
     grid-template-columns: repeat(4, 1fr);
   }
 

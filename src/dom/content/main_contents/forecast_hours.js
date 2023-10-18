@@ -1,7 +1,7 @@
 import { newEl, forecastBox } from '../../dom_helper';
 
 const forecastHours = (hours, i) => {
-  let cont = newEl('', 'hours');
+  let cont = newEl('', 'forecast-row');
 
   for(let hr_i=0; hr_i<hours.length; hr_i++) {
     const hour = forecastBox('hour', hours[hr_i].condition.icon);

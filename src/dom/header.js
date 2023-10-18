@@ -4,15 +4,15 @@ export const header = (() => {
   const container = newEl('header');
   const city = newEl('city');
 
-  const newCityLink = (() => {
-    const newCity = newEl('change-city', 'form-toggle');
-    newCity.innerHTML = 'Change City';
+  function formLink() {
+    const link = newEl('form-link', 'form-toggle', 'img');
+    link.src = '/src/icons/chevron-right.svg';
 
-    const cont = newEl('new-city');
-    cont.appendChild(newCity);
+    const cont = newEl('link-cont');
+    cont.appendChild(link)
 
     return cont;
-  })();
+  };
 
   function cityData(currData) {
     const cont = newEl('curr-forecast', '');
@@ -26,23 +26,31 @@ export const header = (() => {
     return cont;
   }
 
-  function cityName(name) {
-    const cont = newEl('city-name');
-    cont.innerHTML = name;
+  function cityLocation(location) {
+    const loc1 = document.createElement('p');
+    loc1.innerHTML = `${location.region}, ${location.country}`;
+
+    const loc2 = document.createElement('p');
+    loc2.innerHTML = location.name
+
+    const cont = newEl('city-loc');
+    cont.append(loc1, loc2)
 
     return cont;
   }
 
-  PubSub.subscribe('data_ready', (_, data) => {
+  function newCityForecast(_, data) {
     clear(city);
 
     city.append(
-      cityName(data.location.name),
+      cityLocation(data.location),
       cityData(data.current),
     );
-  });
+  }
 
-  container.append(city, newCityLink);
+  PubSub.subscribe('data_ready', newCityForecast)
+
+  container.append(city, formLink());
 
   return container;
 })();

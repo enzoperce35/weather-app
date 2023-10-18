@@ -22,9 +22,8 @@ export const form = (() => {
   })();
 
   const formExit = (() => {
-    const el = newEl('form-exit', 'form-toggle', 'p');
-
-    el.innerHTML = 'X';
+    const el = newEl('form-exit', 'form-toggle', 'img');
+    el.src = "/src/icons/close-box.svg";
 
     return el;
   })();

@@ -4,24 +4,10 @@
   row-gap: .5vh;
 }
 
-#forecast-hours, #forecast-days {
+#main-content > * {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
   row-gap: 1vh;
-}
-
-.icon-boxes {
-  padding: .3em;
-}
-
-#title-col {
-  background-color: rgb(93, 142, 156);
-}
-
-#title-row {
-  grid-column: 2/3;
-  column-gap: .3vw;
-  color: rgb(3, 7, 7);
-  font-weight: bold;
-  font-size: 16px;
 }
 
 #title-col,
@@ -29,4 +15,27 @@
   display: grid;
   grid-template-columns: 9.5vw 84vw;
   column-gap: .5vw;
+}
+
+#title-row,
+.forecast-row {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  column-gap: .3vw;
+}
+
+#title-row {
+  grid-column: 2/3;
+  color: rgb(3, 7, 7);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.hour-titles {
+  align-self: center;
+  justify-self: center;
+}
+
+.icon-boxes {
+  padding: .3em;
 }

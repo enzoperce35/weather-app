@@ -7,14 +7,16 @@
   box-sizing: border-box;
 }
 
-#main,
-#title-col,
-.displayline,
-.icon-boxes {
+#container * {
   border-radius: 5px;
 }
 
 #main,
 .displayline {
   width: 94vw;
+}
+
+#title-col,
+.displayline {
+  background-color: rgb(100, 123, 145);
 }

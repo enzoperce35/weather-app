@@ -8,15 +8,12 @@ function newEl(elId = '', elClass = '', el = 'div') {
   return element;
 }
 
-function currForecast(icon, data) {
+function currForecast(attr, data) {
+  const forecast = newEl('', 'cityfore-data', 'p');
+  forecast.innerHTML = `${attr}: ${data}`;
+
   const cont = newEl('', 'cityforecasts');
-  const dataCont = newEl('', 'cityfore-data', 'span');
-  const urlCont = newEl('', 'cityfore-icon', 'img');
-
-  urlCont.src = `/src/icons/${icon}.svg`;
-  dataCont.innerHTML = data;
-
-  cont.append(urlCont, dataCont);
+  cont.append(forecast);
 
   return cont;
 }
@@ -28,6 +25,14 @@ function forecastBox(unit, path, el = 'span') {
   box.classList.add(`${unit}-box`);
 
   return box;
+}
+
+function blurredPage(blur = false) {
+  const page = document.querySelectorAll("#container > *:not(#form)");
+
+  page.forEach((p) => {
+    p.style =  blur ? "filter: blur(10px)" : "filter: unset"
+  })
 }
 
 function clear(cont) {
@@ -46,6 +51,7 @@ export {
   newEl,
   forecastBox,
   displayLine,
+  blurredPage,
   currForecast,
   clear,
 };

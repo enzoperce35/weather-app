@@ -1,43 +1,56 @@
 #header {
-  display: grid;
-  grid-template-columns: 80vw 14vw;
+  display: flex;
+}
+
+#header > * {
   padding-bottom: 2vh;
+  width: fit-content;
 }
 
 #city {
-  padding-bottom: 2vh;
   display: grid;
   grid-template-columns: repeat(2, auto);
   column-gap: 2vw;
+
   justify-content: left;
   align-content: center;
+
+  max-width: 80vw;
+  overflow-x: hidden;
+  text-wrap: nowrap;
 }
 
-#city-name {
+#city-loc > * {
+  margin: unset;
+}
+
+#city-loc > :first-child {
+  margin-left: 5px;
+}
+
+#city-loc > :last-child {
   font-size: 6em;
 }
 
-#curr-forecast {
-  list-style-type: none;
-  display: grid;
-  grid-template-rows: repeat(3, 3vh);
+#link-cont {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 4vh;
 }
 
-.cityfore-icon {
-  height: 1.5em;
-  padding-right: .2vw;
+#form-link {
+  height: 4em;
+  cursor: pointer;
+}
+
+#curr-forecast {
+  display: grid;
+  grid-template-rows: repeat(3, 3vh);
+  justify-self: right;
 }
 
 .cityfore-data {
   font-weight: bold;
   font-size: .8em;
-  position: relative;
-  top: -.30em;
-}
-
-#new-city {
-  justify-self: right;
-  display: flex;
-  flex-direction: column-reverse;
-  cursor: pointer;
+  margin-top: unset;
 }

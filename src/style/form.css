@@ -12,8 +12,8 @@ form {
   grid-template-rows: 5px 1fr repeat((3, 2fr)) 1fr;
   row-gap: 4vh;
 
-  background-color: rgb(196, 176, 252);
-  border: 10px double darkgreen;
+  background-color: rgb(247, 250, 207);
+  border: 5px double darkgreen;
   border-radius: 8px;
 }
 
@@ -26,10 +26,9 @@ form {
 }
 
 #form-exit {
-  margin: unset;
-  text-align: right;
-  font-weight: bolder;
   cursor: pointer;
+  height: 2em;
+  justify-self: end;
 }
 
 label {
@@ -49,6 +48,7 @@ input:not([type = 'submit']) {
 input:is([type = 'submit']){
   width: 5vw;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 input:focus {

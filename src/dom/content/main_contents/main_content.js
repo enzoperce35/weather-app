@@ -5,9 +5,7 @@ import { forecastHours } from './forecast_hours';
 const mainContent = (() => {
   const container = newEl('main-content');
 
-  PubSub.subscribe('data_ready', (_, data) => {
-    clear(container)
-
+  function displayNewForecasts(data) {
     const daysCont = newEl('forecast-days');
     const hourCont = newEl('forecast-hours');
 
@@ -17,6 +15,12 @@ const mainContent = (() => {
     });
 
     container.append(daysCont, hourCont);
+  }
+
+  PubSub.subscribe('data_ready', (_, data) => {
+    clear(container)
+
+    displayNewForecasts(data)
   });
 
   return container;
