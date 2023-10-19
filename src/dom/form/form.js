@@ -1,3 +1,4 @@
+import exitBox from '/src/icons/close-box.svg';
 import { newEl } from '../dom_helper';
 import { formField } from './form_field';
 
@@ -23,7 +24,7 @@ export const form = (() => {
 
   const formExit = (() => {
     const el = newEl('form-exit', 'form-toggle', 'img');
-    el.src = "/src/icons/close-box.svg";
+    el.src = exitBox;
 
     return el;
   })();

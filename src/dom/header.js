@@ -1,3 +1,4 @@
+import chevRight from '../icons/chevron-right.svg';
 import { newEl, currForecast, clear } from './dom_helper';
 
 export const header = (() => {
@@ -6,7 +7,7 @@ export const header = (() => {
 
   function formLink() {
     const link = newEl('form-link', 'form-toggle', 'img');
-    link.src = '/src/icons/chevron-right.svg';
+    link.src = chevRight;
 
     const cont = newEl('link-cont');
     cont.appendChild(link)
