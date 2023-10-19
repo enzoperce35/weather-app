@@ -21,3 +21,6 @@ A 'TOP' Javascript course project which covers the implementation of 'Promise' b
 
 ## Project Link
 https://www.theodinproject.com/lessons/javascript-weather-app
+
+## Live View
+https://enzoperce35.github.io/weather-app/
